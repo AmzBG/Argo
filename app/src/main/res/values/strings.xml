@@ -21,4 +21,5 @@
     <string name="User_Image">Image entered by the user</string>
     <string name="upload">Upload</string>
     <string name="copy">Copy</string>
+    <string name="guideline">Navigate through the navigation menu</string>
 </resources>

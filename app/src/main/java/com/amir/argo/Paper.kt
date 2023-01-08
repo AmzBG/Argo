@@ -22,11 +22,20 @@ class Paper : AppCompatActivity() {
         content.text = intent.getStringExtra("content")
         var boolean = false
         val background = intent.getStringExtra("background")
-        if(background.equals("backgroundImage2"))
+        if(background.equals("blue"))
         {
-            layout.setBackgroundColor(Color.rgb(21, 22, 43))
-            content.setTextColor(Color.WHITE)
-            boolean = true
+            if (text.text.equals("White Paper"))
+            {
+                layout.setBackgroundColor(Color.WHITE)
+                content.setTextColor(Color.BLACK)
+                boolean = true
+            }
+            else
+            {
+                layout.setBackgroundColor(Color.rgb(21, 22, 43))
+                content.setTextColor(Color.WHITE)
+                boolean = true
+            }
         }
         else
         {
@@ -38,7 +47,7 @@ class Paper : AppCompatActivity() {
             val intent = Intent(this,Paper_Menu::class.java)
             intent.putExtra("type", text.text)
             intent.putExtra("content", content.text)
-            intent.putExtra("background", if(boolean) "backgroundImage2" else "backgroundImage")
+            intent.putExtra("background", if(boolean) "blue" else "green")
             startActivity(intent)
         }
     }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundimage"
+    android:background="@color/green"
     android:id="@+id/layout"
     android:hapticFeedbackEnabled="false"
     tools:context=".MainActivity">
@@ -13,7 +13,7 @@
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="#81838F"
+        android:background="@color/grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -41,7 +41,7 @@
         android:gravity="center"
         android:text="@string/home"
         android:textAlignment="center"
-        android:textColor="#8C9EFF"
+        android:textColor="@color/purple"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/divider"
@@ -61,6 +61,62 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.109" />
+
+    <ImageView
+        android:id="@+id/guideImage"
+        android:layout_width="143dp"
+        android:layout_height="155dp"
+        android:rotation="-10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.114"
+        app:srcCompat="@drawable/arrow" />
+
+    <View
+        android:id="@+id/guidebar"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:alpha=".5"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.349" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="57dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="284dp"
+        app:layout_constraintBottom_toBottomOf="@+id/guidebar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="@+id/guidebar"
+        app:layout_constraintTop_toTopOf="@+id/guidebar"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/icon" />
+
+    <TextView
+        android:id="@+id/guideContent"
+        android:layout_width="260dp"
+        android:layout_height="34dp"
+        android:background="#00825C"
+        android:gravity="center"
+        android:text="@string/guideline"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/guidebar"
+        app:layout_constraintEnd_toEndOf="@+id/guidebar"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toEndOf="@+id/icon"
+        app:layout_constraintTop_toTopOf="@+id/guidebar"
+        app:layout_constraintVertical_bias="0.481" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

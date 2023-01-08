@@ -30,12 +30,22 @@ class Paper_Menu : AppCompatActivity() {
         val layout = findViewById<ConstraintLayout>(R.id.layout)
         val themeSwitch = findViewById<Switch>(R.id.themeSwitch)
         val background = intent.getStringExtra("background")
-        if(background.equals("backgroundImage2"))
+        if(background.equals("blue"))
         {
-            themeSwitch.isChecked = true
-            layout.setBackgroundColor(Color.rgb(21, 22, 43))
-            content.setTextColor(Color.WHITE)
-            theme.setImageResource(R.drawable.darkmode)
+            if (text.text.equals("White Paper"))
+            {
+                themeSwitch.isChecked = true
+                layout.setBackgroundColor(Color.WHITE)
+                content.setTextColor(Color.BLACK)
+                theme.setImageResource(R.drawable.lightmode)
+            }
+            else
+            {
+                themeSwitch.isChecked = true
+                layout.setBackgroundColor(Color.rgb(21, 22, 43))
+                content.setTextColor(Color.WHITE)
+                theme.setImageResource(R.drawable.darkmode)
+            }
         }
         else
         {
@@ -47,9 +57,18 @@ class Paper_Menu : AppCompatActivity() {
         themeSwitch.setOnCheckedChangeListener { _, isChecked ->
             if(isChecked)
             {
-                layout.setBackgroundColor(Color.rgb(21, 22, 43))
-                content.setTextColor(Color.WHITE)
-                theme.setImageResource(R.drawable.darkmode)
+                if (text.text.equals("White Paper"))
+                {
+                    layout.setBackgroundColor(Color.WHITE)
+                    content.setTextColor(Color.BLACK)
+                    theme.setImageResource(R.drawable.lightmode)
+                }
+                else
+                {
+                    layout.setBackgroundColor(Color.rgb(21, 22, 43))
+                    content.setTextColor(Color.WHITE)
+                    theme.setImageResource(R.drawable.darkmode)
+                }
             }
             else
             {
@@ -64,7 +83,7 @@ class Paper_Menu : AppCompatActivity() {
             val intent = Intent(this,Paper::class.java)
             intent.putExtra("type", text.text)
             intent.putExtra("content", content.text)
-            intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
+            intent.putExtra("background", if(themeSwitch.isChecked) "blue" else "green")
             startActivity(intent)
         }
 
@@ -72,7 +91,7 @@ class Paper_Menu : AppCompatActivity() {
         textDetector.setOnClickListener{
             val intent = Intent(this,Text_Detector::class.java)
             intent.putExtra("type", "Text Detector")
-            intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
+            intent.putExtra("background", if(themeSwitch.isChecked) "blue" else "green")
             startActivity(intent)
         }
 
@@ -86,8 +105,7 @@ class Paper_Menu : AppCompatActivity() {
             {
                 val intent = Intent(this,Paper::class.java)
                 intent.putExtra("type", "White Paper")
-                intent.putExtra("content", getString(R.string.White_Paper_info))
-                intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
+                intent.putExtra("background", if(themeSwitch.isChecked) "blue" else "green")
                 startActivity(intent)
             }
         }
@@ -103,7 +121,7 @@ class Paper_Menu : AppCompatActivity() {
                 val intent = Intent(this,Paper::class.java)
                 intent.putExtra("type", "Settings")
                 intent.putExtra("content", getString(R.string.Settings_info))
-                intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
+                intent.putExtra("background", if(themeSwitch.isChecked) "blue" else "green")
                 startActivity(intent)
             }
         }
@@ -119,7 +137,7 @@ class Paper_Menu : AppCompatActivity() {
                 val intent = Intent(this,Paper::class.java)
                 intent.putExtra("type", "Privacy")
                 intent.putExtra("content", getString(R.string.Privacy_info))
-                intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
+                intent.putExtra("background", if(themeSwitch.isChecked) "blue" else "green")
                 startActivity(intent)
             }
         }
@@ -127,7 +145,8 @@ class Paper_Menu : AppCompatActivity() {
         val home = findViewById<Button>(R.id.home)
         home.setOnClickListener{
             val intent = Intent(this,MainActivity::class.java)
-            intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
+            intent.putExtra("guide", "disappear")
+            intent.putExtra("background", if(themeSwitch.isChecked) "blue" else "green")
             startActivity(intent)
         }
 

@@ -57,15 +57,19 @@ class Text_Detector : AppCompatActivity() {
         val layout = binding.layout
         val background = intent.getStringExtra("background")
         binding.copy.isVisible = false
-        if(background.equals("backgroundImage2"))
+        if(background.equals("blue"))
         {
             layout.setBackgroundColor(Color.rgb(21, 22, 43))
             textView.setTextColor(Color.WHITE)
+            binding.copy.setBackgroundColor(Color.rgb(21, 22, 43))
+            binding.copy.setImageResource(R.drawable.whitecopy)
         }
         else
         {
-            layout.setBackgroundColor(Color.WHITE)
+            layout.setBackgroundColor(Color.rgb(0, 131, 92))
             textView.setTextColor(Color.BLACK)
+            binding.copy.setBackgroundColor(Color.rgb(0, 131, 92))
+            binding.copy.setImageResource(R.drawable.whitecopy)
         }
 
         binding.apply {
@@ -89,8 +93,11 @@ class Text_Detector : AppCompatActivity() {
             detectText.setOnClickListener{
                 processImage()
                 if (imageBitmap != null)
+                {
                     copy.isVisible = true
-                if (background.equals("backgroundImage2"))
+                    binding.caution.isVisible = false
+                }
+                if (background.equals("blue"))
                     textView.setTextColor(Color.WHITE)
                 else
                     textView.setTextColor(Color.BLACK)
@@ -134,7 +141,6 @@ class Text_Detector : AppCompatActivity() {
         else
         {
             Toast.makeText(this, "Please select image first", Toast.LENGTH_LONG).show()
-
         }
 
     }
@@ -145,6 +151,7 @@ class Text_Detector : AppCompatActivity() {
 
         try {
 
+            binding.caution.isVisible = false
             startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
 
 
@@ -158,6 +165,7 @@ class Text_Detector : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        binding.caution.isVisible = false
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             if (intent.getStringExtra("button").equals("capture"))
             {

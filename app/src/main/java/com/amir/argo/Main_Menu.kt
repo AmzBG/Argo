@@ -24,21 +24,21 @@ open class Main_Menu : AppCompatActivity() {
         val background = intent.getStringExtra("background")
 
 //        restoreSwitchState(this, themeSwitch)
-        if (background.equals("backgroundImage2"))
+        if (background.equals("blue"))
         {
             themeSwitch.isChecked = true
-            layout.setBackgroundResource(R.drawable.backgroundimage2)
+            layout.setBackgroundResource(R.color.blue)
             theme.setImageResource(R.drawable.darkmode)
         }
         else {
             themeSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
                     themeSwitch.isChecked = true
-                    layout.setBackgroundResource(R.drawable.backgroundimage2)
+                    layout.setBackgroundResource(R.color.blue)
                     theme.setImageResource(R.drawable.darkmode)
                 } else {
                     themeSwitch.isChecked = false
-                    layout.setBackgroundResource(R.drawable.backgroundimage)
+                    layout.setBackgroundResource(R.color.green)
                     theme.setImageResource(R.drawable.lightmode)
                 }
             }
@@ -46,12 +46,12 @@ open class Main_Menu : AppCompatActivity() {
         themeSwitch.setOnCheckedChangeListener{_, isChecked ->
             if(!isChecked)
             {
-                layout.setBackgroundResource(R.drawable.backgroundimage)
+                layout.setBackgroundResource(R.color.green)
                 theme.setImageResource(R.drawable.lightmode)
             }
             else
             {
-                layout.setBackgroundResource(R.drawable.backgroundimage2)
+                layout.setBackgroundResource(R.color.blue)
                 theme.setImageResource(R.drawable.darkmode)
             }
         }
@@ -60,13 +60,14 @@ open class Main_Menu : AppCompatActivity() {
         textDetector.setOnClickListener{
             val intent = Intent(this,Text_Detector::class.java)
             intent.putExtra("type", "Text Detector")
-            intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
+            intent.putExtra("background", if(themeSwitch.isChecked) "blue" else "green")
             startActivity(intent)
         }
         val transperant = findViewById<View>(R.id.transperant)
         transperant.setOnClickListener{
             val intent = Intent(this,MainActivity::class.java)
-            intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
+            intent.putExtra("guide", "disappear")
+            intent.putExtra("background", if(themeSwitch.isChecked) "blue" else "green")
             startActivity(intent)
         }
 
@@ -74,8 +75,7 @@ open class Main_Menu : AppCompatActivity() {
         whitePaper.setOnClickListener{
             val intent = Intent(this,Paper::class.java)
             intent.putExtra("type", "White Paper")
-            intent.putExtra("content", getString(R.string.White_Paper_info))
-            intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
+            intent.putExtra("background", if(themeSwitch.isChecked) "blue" else "green")
             startActivity(intent)
         }
         val privacy = findViewById<Button>(R.id.privacy)
@@ -83,7 +83,7 @@ open class Main_Menu : AppCompatActivity() {
             val intent = Intent(this,Paper::class.java)
             intent.putExtra("type", "Privacy")
             intent.putExtra("content", getString(R.string.Privacy_info))
-            intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
+            intent.putExtra("background", if(themeSwitch.isChecked) "blue" else "green")
             startActivity(intent)
         }
         val settings = findViewById<Button>(R.id.settings)
@@ -91,7 +91,7 @@ open class Main_Menu : AppCompatActivity() {
             val intent = Intent(this,Paper::class.java)
             intent.putExtra("type", "Settings")
             intent.putExtra("content", getString(R.string.Settings_info))
-            intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
+            intent.putExtra("background", if(themeSwitch.isChecked) "blue" else "green")
             startActivity(intent)
         }
         val home = findViewById<Button>(R.id.home)

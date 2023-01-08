@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="Red">#FFFF0000</color>
     <color name="grey">#81838F</color>
+    <color name="green">#00835C</color> // 0, 131, 92
+    <color name="blue">#FF15162B</color> // 21, 22, 43
+    <color name="purple">#8C9EFF</color>
 </resources>

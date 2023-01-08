@@ -23,7 +23,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="locked"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +37,7 @@
         </activity>
         <activity
             android:name=".Main_Menu"
-            android:screenOrientation="locked"
+            android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -45,7 +45,7 @@
         </activity>
         <activity
             android:name=".Text_Detector"
-            android:screenOrientation="locked"
+            android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -53,7 +53,7 @@
         </activity>
         <activity
             android:name=".Detector_Menu"
-            android:screenOrientation="locked"
+            android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -61,7 +61,7 @@
         </activity>
         <activity
             android:name=".Paper"
-            android:screenOrientation="locked"
+            android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -69,7 +69,7 @@
         </activity>
         <activity
             android:name=".Paper_Menu"
-            android:screenOrientation="locked"
+            android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

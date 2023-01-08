@@ -41,12 +41,14 @@ class Text_Detector : AppCompatActivity() {
 
         binding.Title.text = intent.getStringExtra("type")
 
-        val caution = "*Caution: Make sure the picture is well lit and close to the text while using CAPTURE Mode!!"
+        val caution = "*Caution: Make sure the picture is shot in Portait Mode, well lit, and close to the text while using CAPTURE Mode!!"
 
         val cautionSpannableString = SpannableString(caution)
 
         val red = ForegroundColorSpan(Color.RED)
-        cautionSpannableString.setSpan(red,78, 90, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        val blue = ForegroundColorSpan(Color.BLUE)
+        cautionSpannableString.setSpan(blue,43, 55, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        cautionSpannableString.setSpan(red,101, 113, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
         val textView = binding.textView
         textView.text = cautionSpannableString
@@ -86,7 +88,8 @@ class Text_Detector : AppCompatActivity() {
 
             detectText.setOnClickListener{
                 processImage()
-                copy.isVisible = true
+                if (imageBitmap != null)
+                    copy.isVisible = true
                 if (background.equals("backgroundImage2"))
                     textView.setTextColor(Color.WHITE)
                 else
@@ -143,6 +146,7 @@ class Text_Detector : AppCompatActivity() {
         try {
 
             startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
+
 
         }
         catch (e: Exception){

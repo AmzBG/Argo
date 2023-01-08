@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.TypedValue
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -20,6 +21,11 @@ class Paper : AppCompatActivity() {
         text.text = intent.getStringExtra("type")
         val content = findViewById<TextView>(R.id.content)
         content.text = intent.getStringExtra("content")
+
+        content.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+            resources.getDimensionPixelSize(R.dimen.FontSize).toFloat()
+            )
+
         var boolean = false
         val background = intent.getStringExtra("background")
         if(background.equals("blue"))

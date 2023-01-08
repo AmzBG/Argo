@@ -7,12 +7,9 @@
     <string name="detect_text">Detect Text</string>
     <string name="menu_discription">On the menu to navigate through the activities that are found in the app</string>
     <string name="backgroundImageDiscription">This is the background image</string>
-    <string name="White_Paper_info">\"In your activity, register a receiver in onStart, dlkskhshda;fh;adsfasdjfkhashl;dkjf
-        dsfjl;asdkfjasdjf;lkasflkasdh;fljasd;fj;lasdkjf;lkasdf;djsda
-        dsfjlkasdj;fljsda;lkfjsa;dljf;asldjdfk;ljsda;fjs
-        fdkjl;adsjfasdjfjasdkfjaslkd;jf;klasjdlfja\"</string>
-    <string name="Privacy_info">sadlkfjlkadjsflkasdfkcjvkjZHvjkhcxzvhz;chv</string>
-    <string name="Settings_info">sdahfjasdflkjhsdlkfhasdhflasdhfljasdflhalsdkfha</string>
+    <string name="Privacy_info">•Our app is designed to recognize text in a photo that is provided by the user.\n\n•We do not collect, request, or store any personal information from users or data about the photo.\n\n•We do not collect or store any non-personal data, such as anonymous usage statistics or crash reports.\n\n•We do not share any data with third parties, and we do not use any third-party analytics or tracking tools.\n\n•Your privacy is important to us, and we are committed to protecting your data and respecting your rights.</string>
+    <string name="Settings_info">•App Description: Our app is a tool for detecting text. It includes capturing a photo of the text right on the go and detect the text in that photo, or the ability to import a photo from the gallery.\n\n•Instructions: To use our app, instructions that guide you along the way are provided right away when the user opens the app.\n\n•Theme Optimization: A switch in the navigation menu is provided inorder for the user to change from light mode to night mode and therefore fulfill the user\'s needs in dark and light situations.\n\n•Privacy Policy: Our app values your privacy. You can read our privacy policy to learn more about how we handle your data.\nWe hope you enjoy using our app!</string>
+    <dimen name="FontSize">18sp</dimen>
     <string name="night_mode">Night mode</string>
     <string name="preferenceKey">preferenceKey</string>
     <string name="savedState">savedState</string>

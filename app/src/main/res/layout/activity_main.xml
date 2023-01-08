@@ -35,20 +35,21 @@
         app:srcCompat="@drawable/menu" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/Title"
         android:layout_width="160dp"
         android:layout_height="50dp"
+        android:gravity="center"
         android:text="@string/home"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="#8C9EFF"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="@id/divider"
-        app:layout_constraintHorizontal_bias="0.362"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/divider"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.533" />
 
     <View
         android:id="@+id/whiteBorder"

@@ -16,7 +16,7 @@ class Paper : AppCompatActivity() {
         setContentView(R.layout.activity_paper)
 
         val layout = findViewById<ConstraintLayout>(R.id.layout)
-        val text = findViewById<TextView>(R.id.textView)
+        val text = findViewById<TextView>(R.id.Title)
         text.text = intent.getStringExtra("type")
         val content = findViewById<TextView>(R.id.content)
         content.text = intent.getStringExtra("content")

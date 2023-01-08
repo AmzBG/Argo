@@ -18,4 +18,7 @@
     <string name="savedState">savedState</string>
     <string name="capture">Capture</string>
     <string name="detect">Detect</string>
+    <string name="User_Image">Image entered by the user</string>
+    <string name="upload">Upload</string>
+    <string name="copy">Copy</string>
 </resources>

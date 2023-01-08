@@ -58,7 +58,8 @@ open class Main_Menu : AppCompatActivity() {
 
         val textDetector = findViewById<Button>(R.id.textDetector)
         textDetector.setOnClickListener{
-            val intent = Intent(this,textDetector::class.java)
+            val intent = Intent(this,Text_Detector::class.java)
+            intent.putExtra("type", "Text Detector")
             intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
             startActivity(intent)
         }

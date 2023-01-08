@@ -21,7 +21,7 @@ class Paper_Menu : AppCompatActivity() {
         setContentView(R.layout.activity_paper_menu)
 
 
-        val text = findViewById<TextView>(R.id.textView)
+        val text = findViewById<TextView>(R.id.Title)
         text.text = intent.getStringExtra("type")
         val content = findViewById<TextView>(R.id.content)
         content.text = intent.getStringExtra("content")
@@ -70,7 +70,8 @@ class Paper_Menu : AppCompatActivity() {
 
         val textDetector = findViewById<Button>(R.id.textDetector)
         textDetector.setOnClickListener{
-            val intent = Intent(this,textDetector::class.java)
+            val intent = Intent(this,Text_Detector::class.java)
+            intent.putExtra("type", "Text Detector")
             intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
             startActivity(intent)
         }

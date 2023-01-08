@@ -2,15 +2,16 @@ package com.amir.argo
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
-import androidx.databinding.DataBindingUtil
-import com.amir.argo.databinding.ActivityTextDetectorBinding
+import androidx.constraintlayout.widget.ConstraintLayout
 
 class Detector_Menu : AppCompatActivity() {
     @SuppressLint("UseSwitchCompatOrMaterialCode", "MissingInflatedId")
@@ -18,24 +19,50 @@ class Detector_Menu : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detector_menu)
 
-        val text = findViewById<TextView>(R.id.textView)
-        text.text = intent.getStringExtra("type")
-
+        val title = findViewById<TextView>(R.id.Title)
+        title.text = intent.getStringExtra("type")
 
         val themeSwitch = findViewById<Switch>(R.id.themeSwitch)
+        val layout = findViewById<ConstraintLayout>(R.id.layout)
+        val theme = findViewById<ImageView>(R.id.theme)
         val background = intent.getStringExtra("background")
-        themeSwitch.isChecked = background.equals("backgroundImage2")
+
+        if(background.equals("backgroundImage2"))
+        {
+            themeSwitch.isChecked = true
+            layout.setBackgroundColor(Color.rgb(21, 22, 43))
+            theme.setImageResource(R.drawable.darkmode)
+        }
+        else
+        {
+            themeSwitch.isChecked = false
+            layout.setBackgroundColor(Color.WHITE)
+            theme.setImageResource(R.drawable.lightmode)
+        }
+        themeSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked)
+            {
+                layout.setBackgroundColor(Color.rgb(21, 22, 43))
+                theme.setImageResource(R.drawable.darkmode)
+            }
+            else
+            {
+                layout.setBackgroundColor(Color.WHITE)
+                theme.setImageResource(R.drawable.lightmode)
+            }
+        }
 
         val transperant = findViewById<View>(R.id.transperant)
         transperant.setOnClickListener{
             val intent = Intent(this,Text_Detector::class.java)
             intent.putExtra("type", "Text Detector")
+            intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
             startActivity(intent)
         }
 
         val whitePaper = findViewById<Button>(R.id.whitePaper)
         whitePaper.setOnClickListener{
-            val intent = Intent(this,whitePaper::class.java)
+            val intent = Intent(this,Paper::class.java)
             intent.putExtra("type", "White Paper")
             intent.putExtra("content", getString(R.string.White_Paper_info))
             intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
@@ -66,8 +93,8 @@ class Detector_Menu : AppCompatActivity() {
             intent.putExtra("background", if(themeSwitch.isChecked) "backgroundImage2" else "backgroundImage")
             startActivity(intent)
         }
-        val detect = findViewById<Button>(R.id.textDetector)
-        detect.setOnClickListener{
+        val detectText = findViewById<Button>(R.id.textDetector)
+        detectText.setOnClickListener{
             val toast = Toast.makeText(this, "You're in Text Detector", Toast.LENGTH_LONG)
             toast.show()
         }

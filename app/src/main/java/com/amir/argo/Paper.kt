@@ -22,10 +22,6 @@ class Paper : AppCompatActivity() {
         val content = findViewById<TextView>(R.id.content)
         content.text = intent.getStringExtra("content")
 
-        content.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-            resources.getDimensionPixelSize(R.dimen.FontSize).toFloat()
-            )
-
         var boolean = false
         val background = intent.getStringExtra("background")
         if(background.equals("blue"))
@@ -45,8 +41,16 @@ class Paper : AppCompatActivity() {
         }
         else
         {
-            layout.setBackgroundColor(Color.WHITE)
-            content.setTextColor(Color.BLACK)
+            if (text.text.equals("White Paper"))
+            {
+                layout.setBackgroundColor(Color.WHITE)
+                content.setTextColor(Color.BLACK)
+            }
+            else
+            {
+                layout.setBackgroundColor(Color.rgb(0, 131, 92))
+                content.setTextColor(Color.BLACK)
+            }
         }
         val menu = findViewById<ImageButton>(R.id.paper_menu)
         menu.setOnClickListener{

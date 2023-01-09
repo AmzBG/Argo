@@ -21,6 +21,7 @@ open class Main_Menu : AppCompatActivity() {
         val theme = findViewById<ImageView>(R.id.theme)
         val layout = findViewById<ConstraintLayout>(R.id.layout)
         val themeSwitch = findViewById<Switch>(R.id.themeSwitch)
+        val homeicon = findViewById<ImageView>(R.id.homeicon)
         val background = intent.getStringExtra("background")
 
 //        restoreSwitchState(this, themeSwitch)
@@ -29,6 +30,9 @@ open class Main_Menu : AppCompatActivity() {
             themeSwitch.isChecked = true
             layout.setBackgroundResource(R.color.blue)
             theme.setImageResource(R.drawable.darkmode)
+            homeicon.setImageResource(R.drawable.whitehomeicon)
+
+
         }
         else {
             themeSwitch.setOnCheckedChangeListener { _, isChecked ->
@@ -36,10 +40,12 @@ open class Main_Menu : AppCompatActivity() {
                     themeSwitch.isChecked = true
                     layout.setBackgroundResource(R.color.blue)
                     theme.setImageResource(R.drawable.darkmode)
+                    homeicon.setImageResource(R.drawable.whitehomeicon)
                 } else {
                     themeSwitch.isChecked = false
                     layout.setBackgroundResource(R.color.green)
                     theme.setImageResource(R.drawable.lightmode)
+                    homeicon.setImageResource(R.drawable.homeicon)
                 }
             }
         }
@@ -48,11 +54,13 @@ open class Main_Menu : AppCompatActivity() {
             {
                 layout.setBackgroundResource(R.color.green)
                 theme.setImageResource(R.drawable.lightmode)
+                homeicon.setImageResource(R.drawable.homeicon)
             }
             else
             {
                 layout.setBackgroundResource(R.color.blue)
                 theme.setImageResource(R.drawable.darkmode)
+                homeicon.setImageResource(R.drawable.whitehomeicon)
             }
         }
 
@@ -65,7 +73,7 @@ open class Main_Menu : AppCompatActivity() {
         }
         val transperant = findViewById<View>(R.id.transperant)
         transperant.setOnClickListener{
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,RealMainActivity::class.java)
             intent.putExtra("guide", "disappear")
             intent.putExtra("background", if(themeSwitch.isChecked) "blue" else "green")
             startActivity(intent)

@@ -49,10 +49,20 @@ class Paper_Menu : AppCompatActivity() {
         }
         else
         {
-            themeSwitch.isChecked = false
-            layout.setBackgroundColor(Color.WHITE)
-            content.setTextColor(Color.BLACK)
-            theme.setImageResource(R.drawable.lightmode)
+            if (text.text.equals("White Paper"))
+            {
+                themeSwitch.isChecked = false
+                layout.setBackgroundColor(Color.WHITE)
+                content.setTextColor(Color.BLACK)
+                theme.setImageResource(R.drawable.lightmode)
+            }
+            else
+            {
+                themeSwitch.isChecked = false
+                layout.setBackgroundColor(Color.rgb(0, 131, 92))
+                content.setTextColor(Color.BLACK)
+                theme.setImageResource(R.drawable.lightmode)
+            }
         }
         themeSwitch.setOnCheckedChangeListener { _, isChecked ->
             if(isChecked)
@@ -72,7 +82,7 @@ class Paper_Menu : AppCompatActivity() {
             }
             else
             {
-                layout.setBackgroundColor(Color.WHITE)
+                layout.setBackgroundColor(Color.rgb(0, 131, 92))
                 content.setTextColor(Color.BLACK)
                 theme.setImageResource(R.drawable.lightmode)
             }
@@ -144,7 +154,7 @@ class Paper_Menu : AppCompatActivity() {
 
         val home = findViewById<Button>(R.id.home)
         home.setOnClickListener{
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,RealMainActivity::class.java)
             intent.putExtra("guide", "disappear")
             intent.putExtra("background", if(themeSwitch.isChecked) "blue" else "green")
             startActivity(intent)

@@ -88,7 +88,7 @@ class Detector_Menu : AppCompatActivity() {
 
         val home = findViewById<Button>(R.id.home)
         home.setOnClickListener{
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,RealMainActivity::class.java)
             intent.putExtra("guide", "disappear")
             intent.putExtra("background", if(themeSwitch.isChecked) "blue" else "green")
             startActivity(intent)

@@ -13,10 +13,10 @@
         android:id="@+id/content"
         android:layout_width="350dp"
         android:layout_height="580dp"
-        android:padding="20sp"
         android:text=""
+        android:padding="20sp"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="@dimen/FontSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -35,6 +35,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/whiteBorder"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.109" />
 
     <TextView
         android:id="@+id/Title"

@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btn_next = findViewById<Button>(R.id.btn_next)
+        val btn_skip = findViewById<Button>(R.id.btn_skip)
         val view_pager = findViewById<ViewPager>(R.id.view_pager)
         val indicator1 = findViewById<TextView>(R.id.indicator1)
         val indicator2 = findViewById<TextView>(R.id.indicator2)
@@ -62,6 +63,8 @@ class MainActivity : AppCompatActivity() {
         btn_next.setOnClickListener{
             view_pager.currentItem++
         }
+
+        btn_skip.setOnClickListener{ goToRealMeanActivivty()}
         view_pager.addOnPageChangeListener(object: ViewPager.OnPageChangeListener{
             override fun onPageScrollStateChanged(state: Int) {
 
@@ -77,11 +80,7 @@ class MainActivity : AppCompatActivity() {
                     //lastPage
                     btn_next.text = "Done"
                     btn_next.setOnClickListener{
-                        startActivity(Intent(activity, RealMainActivity::class.java))
-                        finish()
-                        val editor = preference.edit()
-                        editor.putBoolean(pref_show_intro, false)
-                        editor.apply()
+                        goToRealMeanActivivty()
                     }
                 }
                 else
@@ -114,6 +113,15 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+    fun goToRealMeanActivivty()
+    {
+        startActivity(Intent(activity, RealMainActivity::class.java))
+        finish()
+        val editor = preference.edit()
+        editor.putBoolean(pref_show_intro, false)
+        editor.apply()
     }
 
     class myPagerAdapter(manager: FragmentManager): FragmentPagerAdapter(manager){
